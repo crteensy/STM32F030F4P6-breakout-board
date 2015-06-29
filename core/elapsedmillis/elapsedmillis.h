@@ -8,9 +8,9 @@ class elapsedMillis
 private:
 	unsigned long ms;
 public:
-	elapsedMillis(void) { ms = systick::millis(); }
-	elapsedMillis(unsigned long val) { ms = systick::millis() - val; }
-	elapsedMillis(const elapsedMillis &orig) { ms = orig.ms; }
+	elapsedMillis(void) : ms(systick::millis()){ }
+	elapsedMillis(unsigned long val) : ms(systick::millis() - val){ }
+	elapsedMillis(const elapsedMillis &orig) : ms(orig.ms) {}
 	operator unsigned long () const { return systick::millis() - ms; }
 	elapsedMillis & operator = (const elapsedMillis &rhs) { ms = rhs.ms; return *this; }
 	elapsedMillis & operator = (unsigned long val) { ms = systick::millis() - val; return *this; }
