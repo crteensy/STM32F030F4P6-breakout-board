@@ -5,17 +5,18 @@
 		<Option title="STM32F030F4P6-BB" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc-arm-none-eabi_49_2015q2" />
-		<Option show_notes="0">
+		<Option show_notes="1">
 			<notes>
 				<![CDATA[If you use this project template for the first time
 ===============================
 - make sure then libopencm3 has been compiled as per their instructions
+- correctly configure your compiler. The project looks for a compiler named "gcc-arm-none-eabi 4.9 2015q2". If you want to use a different one, change the project's top-level compiler to that.
 - in the project's "Build Settings"->"Custom Variables": update the variable opencm3root to point at your libopencm3 root directory
 - create a template: "File"->"Save Project as Template..."
 
 If you want to reuse this project:
 =====================
-- Use your previously created template: "File"->"New"->"From Template"]]>
+- Use your previously created template (see above): "File"->"New"->"From Template"]]>
 			</notes>
 		</Option>
 		<Build>
