@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="STM32F030F4P6-BB" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc-arm-none-eabi_49_2015q2" />
+		<Option show_notes="0">
+			<notes>
+				<![CDATA[If you use this project template for the first time
+===============================
+- make sure then libopencm3 has been compiled as per their instructions
+- in the project's "Build Settings"->"Custom Variables": update the variable opencm3root to point at your libopencm3 root directory
+- create a template: "File"->"Save Project as Template..."
+
+If you want to reuse this project:
+=====================
+- Use your previously created template: "File"->"New"->"From Template"]]>
+			</notes>
+		</Option>
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/STM32F030F4P6-BB.elf" prefix_auto="1" extension_auto="0" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc-arm-none-eabi_49_2015q2" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/STM32F030F4P6-BB.elf" prefix_auto="1" extension_auto="0" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc-arm-none-eabi_49_2015q2" />
+				<Option projectCompilerOptionsRelation="0" />
+				<Option projectLinkerOptionsRelation="0" />
+				<Option projectIncludeDirsRelation="0" />
+				<Option projectResourceIncludeDirsRelation="0" />
+				<Option projectLibDirsRelation="0" />
+				<MakeCommands>
+					<Build command="" />
+					<CompileFile command="" />
+					<Clean command="" />
+					<DistClean command="" />
+					<AskRebuildNeeded command="" />
+					<SilentBuild command=" &gt; $(CMD_NULL)" />
+				</MakeCommands>
+			</Target>
+			<Environment>
+				<Variable name="opencm3root" value="../../20150629_01_opencm3/libopencm3" />
+			</Environment>
+		</Build>
+		<Compiler>
+			<Add option="-mthumb" />
+			<Add option="-msoft-float" />
+			<Add option="-mlittle-endian" />
+			<Add option="-pedantic" />
+			<Add option="-Wall" />
+			<Add option="-mcpu=cortex-m0" />
+			<Add option="-ffunction-sections" />
+			<Add option="-fdata-sections" />
+			<Add option="-fno-exceptions" />
+			<Add option="--specs=nano.specs" />
+			<Add option="--specs=nosys.specs" />
+			<Add option="-DSTM32F0" />
+			<Add directory="$(opencm3root)/include" />
+			<Add directory="." />
+		</Compiler>
+		<Linker>
+			<Add option="-mcpu=cortex-m0" />
+			<Add option="-mthumb" />
+			<Add option="-Wl,--gc-sections" />
+			<Add option="--specs=nano.specs" />
+			<Add option="--specs=nosys.specs" />
+			<Add option="-Tstm32f030f4p6.ld" />
+			<Add option="-Wl,-Map=$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).map,--cref" />
+			<Add library="c_nano" />
+			<Add library="nosys" />
+			<Add library="opencm3_stm32f0" />
+			<Add directory="ld" />
+			<Add directory="$(opencm3root)/lib" />
+		</Linker>
+		<ExtraCommands>
+			<Add after="arm-none-eabi-size $(TARGET_OUTPUT_FILE)" />
+			<Add after="arm-none-eabi-objcopy -O binary $(TARGET_OUTPUT_FILE) $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).bin" />
+			<Add after="arm-none-eabi-objdump -d $(TARGET_OUTPUT_FILE) &gt; $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).lst" />
+		</ExtraCommands>
+		<Unit filename="core/core.h" />
+		<Unit filename="core/elapsedmillis/elapsedmillis.h" />
+		<Unit filename="core/systick/systick.cpp" />
+		<Unit filename="core/systick/systick.h" />
+		<Unit filename="ld/stm32f030f4p6.ld" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<lib_finder disable_auto="1" />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
