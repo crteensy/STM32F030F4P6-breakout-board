@@ -55,7 +55,7 @@ If you want to reuse this project:
 				</MakeCommands>
 			</Target>
 			<Environment>
-				<Variable name="opencm3root" value="/home/buffi/builds/libopencm3/libopencm3_20150629" />
+				<Variable name="opencm3root" value="/home/crteensy/builds/libopencm3/libopencm3_20150629" />
 			</Environment>
 		</Build>
 		<Compiler>
