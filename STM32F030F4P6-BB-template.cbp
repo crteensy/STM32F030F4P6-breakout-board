@@ -4,7 +4,7 @@
 	<Project>
 		<Option title="STM32F030F4P6-BB" />
 		<Option pch_mode="2" />
-		<Option compiler="gcc-arm-none-eabi_49_2015q2" />
+		<Option compiler="arm-elf-gcc" />
 		<Option show_notes="1">
 			<notes>
 				<![CDATA[If you use this project template for the first time
@@ -24,7 +24,7 @@ If you want to reuse this project:
 				<Option output="bin/Debug/STM32F030F4P6-BB.elf" prefix_auto="1" extension_auto="0" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
-				<Option compiler="gcc-arm-none-eabi_49_2015q2" />
+				<Option compiler="arm-elf-gcc" />
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
@@ -33,12 +33,18 @@ If you want to reuse this project:
 				<Option output="bin/Release/STM32F030F4P6-BB.elf" prefix_auto="1" extension_auto="0" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
-				<Option compiler="gcc-arm-none-eabi_49_2015q2" />
+				<Option compiler="arm-elf-gcc" />
 				<Option projectCompilerOptionsRelation="0" />
 				<Option projectLinkerOptionsRelation="0" />
 				<Option projectIncludeDirsRelation="0" />
 				<Option projectResourceIncludeDirsRelation="0" />
 				<Option projectLibDirsRelation="0" />
+				<Compiler>
+					<Add option="-Os" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
 				<MakeCommands>
 					<Build command="" />
 					<CompileFile command="" />
@@ -49,14 +55,16 @@ If you want to reuse this project:
 				</MakeCommands>
 			</Target>
 			<Environment>
-				<Variable name="opencm3root" value="../../20150629_01_opencm3/libopencm3" />
+				<Variable name="opencm3root" value="/home/buffi/builds/libopencm3/libopencm3_20150629" />
 			</Environment>
 		</Build>
 		<Compiler>
 			<Add option="-mthumb" />
 			<Add option="-msoft-float" />
 			<Add option="-mlittle-endian" />
+			<Add option="-Weffc++" />
 			<Add option="-pedantic" />
+			<Add option="-std=c++0x" />
 			<Add option="-Wall" />
 			<Add option="-mcpu=cortex-m0" />
 			<Add option="-ffunction-sections" />
