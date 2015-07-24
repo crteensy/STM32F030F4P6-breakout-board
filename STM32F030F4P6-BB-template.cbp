@@ -52,7 +52,7 @@ If you want to reuse this project:
 				</MakeCommands>
 			</Target>
 			<Environment>
-				<Variable name="opencm3root" value="/media/buffi/bangkok/libopencm3/arm-none-eabi-4_9-2015q2" />
+				<Variable name="opencm3root" value="/media/bangkok/libopencm3/arm-none-eabi-4_9-2015q2" />
 			</Environment>
 		</Build>
 		<Compiler>
@@ -61,7 +61,7 @@ If you want to reuse this project:
 			<Add option="-mlittle-endian" />
 			<Add option="-Weffc++" />
 			<Add option="-pedantic" />
-			<Add option="-std=c++0x" />
+			<Add option="-std=c++11" />
 			<Add option="-Wall" />
 			<Add option="-mcpu=cortex-m0" />
 			<Add option="-ffunction-sections" />
@@ -69,6 +69,7 @@ If you want to reuse this project:
 			<Add option="-fno-exceptions" />
 			<Add option="--specs=nano.specs" />
 			<Add option="--specs=nosys.specs" />
+			<Add option="--std=c11" />
 			<Add option="-DSTM32F0" />
 			<Add directory="$(opencm3root)/include" />
 			<Add directory="." />
@@ -94,7 +95,9 @@ If you want to reuse this project:
 		</ExtraCommands>
 		<Unit filename="core/core.h" />
 		<Unit filename="core/elapsedmillis/elapsedmillis.h" />
-		<Unit filename="core/systick/systick.cpp" />
+		<Unit filename="core/systick/systick.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="core/systick/systick.h" />
 		<Unit filename="ld/stm32f030f4p6.ld" />
 		<Unit filename="main.cpp" />

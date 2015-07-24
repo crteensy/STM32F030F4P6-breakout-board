@@ -27,7 +27,7 @@ int main(void)
   gpio_setup();
 
   /* setup systick to generate 2 LED flashes per second */
-  systick::init();
+  systick_init();
 
   /* Do nothing in main loop */
   while (1)

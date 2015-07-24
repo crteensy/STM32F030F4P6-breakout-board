@@ -5,13 +5,18 @@
 
 #include <libopencm3/cm3/nvic.h>
 
-namespace systick
-{
-  static volatile uint32_t millis_;
-  uint32_t millis();
-  uint32_t extraTicks();
-  void init();
-} // namespace systick
+#ifdef __cplusplus
+extern "C" {
+#endif // __cplusplus
+
+extern volatile uint32_t systick_millis_;
+uint32_t millis();
+uint32_t systick_extraTicks();
+void systick_init();
+
+#ifdef __cplusplus
+}
+#endif // __cplusplus
 
 #endif // SYSTICK_H
 
